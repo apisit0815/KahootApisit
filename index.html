@@ -59,7 +59,7 @@
       <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-5 rounded-2xl shadow-xl">
         <div class="flex justify-between items-center mb-4">
           <span id="q-number" class="font-bold text-xl bg-blue-800 px-4 py-1 rounded-lg">ข้อที่ -</span>
-          <div id="timer-display" class="bg-red-500 text-white px-4 py-1 rounded-lg font-bold text-xl animate-pulse">เวลา: 5 วิ</div>
+          <div id="timer-display" class="bg-red-500 text-white px-4 py-1 rounded-lg font-bold text-xl animate-pulse">เวลา: 10 วิ</div>
           <span id="player-score-display" class="bg-yellow-500 text-yellow-900 px-4 py-1 rounded-lg font-bold">0 คะแนน</span>
         </div>
         <div class="flex flex-wrap gap-2 justify-center bg-black/20 p-3 rounded-xl shadow-inner" id="history-tracker"></div>
@@ -107,7 +107,7 @@
 
     // Timer Variables
     let countdownInterval = null;
-    let timeLeft = 5;
+    let timeLeft = 10;
     let localCurrentQ = -1; // เพื่อเช็คว่ามีการเปลี่ยนข้อหรือยัง
 
     window.onload = function() {
@@ -133,7 +133,7 @@
 
     function startPolling() {
       if(pollInterval) clearInterval(pollInterval);
-      pollInterval = setInterval(refreshState, 2000); // อัปเดตทุก 2 วิ
+      pollInterval = setInterval(refreshState, 1000); // อัปเดตทุก 2 วิ
       refreshState();
     }
 
@@ -191,7 +191,7 @@
 
     function startTimer() {
       clearInterval(countdownInterval);
-      timeLeft = 5;
+      timeLeft = 10;
       const timerDisplay = document.getElementById('timer-display');
       timerDisplay.innerText = `เวลา: ${timeLeft} วิ`;
       timerDisplay.classList.remove('bg-gray-500');
